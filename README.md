@@ -96,8 +96,6 @@ wx.error((error) => console.error('微信 SDK 配置失败', error));
 
 ## 发布到 npm
 
-**先修改 `package.json.name`**：当前 `@your-scope/wechat-js-sdk-esm` 只是示意，请改为你拥有的 scope 和未被占用的包名。
-
 ```bash
 npm login
 npm run build
