@@ -1,0 +1,48 @@
+{
+  "name": "wechat-js-sdk-esm",
+  "version": "0.0.1",
+  "description": "Unofficial TypeScript + ESM reconstruction of WeChat JS-SDK 1.6.3 for H5. 微信 JS-SDK 1.6.3 TypeScript 重构版，支持 Vue3、Vite、H5 微信公众号网页开发，提供完整类型声明。",
+  "type": "module",
+  "sideEffects": true,
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "keywords": [
+    "weixin-js-sdk",
+    "微信JS-SDK",
+    "微信网页开发"
+  ],
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "tests",
+    "examples",
+    "pnpm-lock.yaml",
+    "pnpm-workspace.yaml"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luoriwusheng-xia/wechat-js-sdk-esm.git"
+  },
+  "scripts": {
+    "clean": "node -e \"import('node:fs').then(m => m.rmSync('dist', {recursive:true, force:true}))\"",
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test tests/*.test.mjs",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm run typecheck && npm run build && npm test"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "vite": "^8.3.5"
+  }
+}
